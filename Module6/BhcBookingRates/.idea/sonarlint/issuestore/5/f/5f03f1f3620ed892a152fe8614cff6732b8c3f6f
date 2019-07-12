@@ -1,0 +1,13 @@
+
+msquid:S3008"ORename this field "PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Èé¡¾8´ÀÄÔ¼-
+U
+squid:S106$"9Replace this use of System.out or System.err by a logger.(ƒš58¿‹¢Õ¼-
+rsquid:S3008"ORename this field "HOST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º‹Àæøÿÿÿÿ8´ÀÄÔ¼-
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(¶®éÓøÿÿÿÿ8“ÏÕ¼-
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(˜Š¿Ûüÿÿÿÿ8¸·ÈÔ¼-
+[
+squid:S106("9Replace this use of System.out or System.err by a logger.(«ü¾–ùÿÿÿÿ8·ŸÕÔ¼-
+gsquid:S2095"DUse try-with-resources or close this "Socket" in a "finally" clause.(©¯Æÿÿÿÿÿ8“Ø¢Õ¼-
+Ÿsquid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„ÆÊ‹8šˆ¤Õ¼-

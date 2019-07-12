@@ -1,0 +1,9 @@
+
+Osquid:S1612X",Replace this lambda with a method reference.(††Ãÿÿÿÿÿ8êçø¼-
+Lsquid:S1604°"(Make this anonymous inner class a lambda(À‚£ºûÿÿÿÿ8êçø¼-
+¤squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ˆàôÿşÿÿÿÿ8êçø¼-
+Osquid:S1612D",Replace this lambda with a method reference.(—ª×«ùÿÿÿÿ8êçø¼-
+Osquid:S1612<",Replace this lambda with a method reference.(ÖÃÆ€úÿÿÿÿ8êçø¼-
+Ysquid:S2209"5Change this instance-reference to a static reference.(÷…¸¸øÿÿÿÿ8êçø¼-
+Lsquid:S1172„"(Remove this unused method parameter "e".(ŞÕÑ«şÿÿÿÿ8êçø¼-
+Tsquid:S2209"5Change this instance-reference to a static reference.(ŒÚ’Ì8ŞöÔ¼-

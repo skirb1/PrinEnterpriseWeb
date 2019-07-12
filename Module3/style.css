@@ -1,0 +1,32 @@
+.indent {
+    padding-left: 20px;
+}
+
+.img-small {
+    width: 200px;
+    height: 150px;
+    vertical-align: middle;
+}
+
+.img-large {
+    width=400px;
+    height=300px;
+    margin: 20px;
+}
+
+table.table-border {
+    width: 600px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table.table-border td {
+    padding: 4px;
+    border: 1px solid black;
+}
+
+table.table-border th {
+    padding: 4px;
+    border: 1px solid black;
+    background-color: darkseagreen
+}

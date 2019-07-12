@@ -1,0 +1,19 @@
+
+Wsquid:S1854W";Remove this useless assignment to local variable "builder".(³¿÷¿ýÿÿÿÿ
+csquid:CommentedOutCodeLineô"<This block of commented-out lines of code should be removed.(žâ€½
+U
+squid:S106°"9Replace this use of System.out or System.err by a logger.(ÂÊÐÛüÿÿÿÿ
+O
+squid:S106¯"9Replace this use of System.out or System.err by a logger.(È…¹U
+jsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.( ”Õƒ
+]squid:S11261"AReplace this if-then-else statement by a single return statement.(Ê©Øáþÿÿÿÿ
+Ysquid:S1126¦"AReplace this if-then-else statement by a single return statement.(éÕ£Ö
+P
+squid:S106®"9Replace this use of System.out or System.err by a logger.(ìñåµ
+bsquid:CommentedOutCodeLineL"<This block of commented-out lines of code should be removed.(ð‚ûì
+osquid:ModifiersOrderCheck "EReorder the modifiers to comply with the Java Language Specification.(Š©²ãþÿÿÿÿ
+Ysquid:S1126»"AReplace this if-then-else statement by a single return statement.(¼š™Â
+Hsquid:S1481W",Remove this unused "builder" local variable.(³¿÷¿ýÿÿÿÿ
+]squid:S1126w"AReplace this if-then-else statement by a single return statement.(­ô›üÿÿÿÿ
+jsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(â¾çô
+Ysquid:S1126‘"AReplace this if-then-else statement by a single return statement.(¿òÞÇ

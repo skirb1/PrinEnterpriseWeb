@@ -1,0 +1,12 @@
+
+dsquid:S1192$"FDefine a constant instead of duplicating this literal "Arial" 3 times.(„ÿùÿ8æÔ²†»-
+Osquid:S1612w",Replace this lambda with a method reference.(††Ãÿÿÿÿÿ8Îûû…»-
+Lsquid:S1172©"(Remove this unused method parameter "e".(ŞÕÑ«şÿÿÿÿ8ÆÜı…»-
+Esquid:S1172 "(Remove this unused method parameter "e".(Ûî†Õüÿÿÿÿ
+Ksquid:S1481Ì",Remove this unused "newFont" local variable.(«ÓÀÑ8İÜ˜‡»-
+Hsquid:S1612P",Replace this lambda with a method reference.(—ª×«ùÿÿÿÿ
+Zsquid:S1854Ì";Remove this useless assignment to local variable "newFont".(«ÓÀÑ8İÜ˜‡»-
+Lsquid:S1604Ñ"(Make this anonymous inner class a lambda(À‚£ºûÿÿÿÿ8İÜ˜‡»-
+Csquid:S2885"'Make "dateFormat" an instance variable.(†ËŠ…ûÿÿÿÿ
+Hsquid:S1612H",Replace this lambda with a method reference.(ÖÃÆ€úÿÿÿÿ
+Csquid:S1612W",Replace this lambda with a method reference.(ŞÄÁÛ

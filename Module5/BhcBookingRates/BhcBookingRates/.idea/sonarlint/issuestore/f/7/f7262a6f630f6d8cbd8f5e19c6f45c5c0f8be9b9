@@ -1,0 +1,29 @@
+
+üsquid:S1186E"ÄAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(“≈≠Ó8Ñ†®àª-
+osquid:CommentedOutCodeLineÂ"<This block of commented-out lines of code should be removed.(ñÜ¯Œˇˇˇˇˇ8§°©àª-
+Fsquid:S10683"*Remove this unused "FORMAT" private field.(∞ÛÉ€¯ˇˇˇˇ
+U
+squid:S106¸"9Replace this use of System.out or System.err by a logger.(ÓÁøÁ˛ˇˇˇˇ
+U
+squid:S106˘"9Replace this use of System.out or System.err by a logger.(π˛⁄Û˙ˇˇˇˇ
+\
+squid:S106˙"9Replace this use of System.out or System.err by a logger.(ûñÖ‰¯ˇˇˇˇ8§°©àª-
+vsquid:S1450&"SRemove the "hike" field and declare it as a local variable in the relevant methods.(âö…ﬁ˘ˇˇˇˇ8§°©àª-
+\
+squid:S106Ú"9Replace this use of System.out or System.err by a logger.(íÑıŸˇˇˇˇˇ8§°©àª-
+\
+squid:S106˛"9Replace this use of System.out or System.err by a logger.(¯≥éí¸ˇˇˇˇ8§°©àª-
+U
+squid:S106Ò"9Replace this use of System.out or System.err by a logger.(⁄Å„Ô˚ˇˇˇˇ
+Ksquid:EmptyStatementUsageCheck%"Remove this empty statement.(ÙüéÏ˙ˇˇˇˇ
+Dsquid:S1068&"(Remove this unused "hike" private field.(âö…ﬁ˘ˇˇˇˇ
+U
+squid:S106˝"9Replace this use of System.out or System.err by a logger.(Ì∏øÄ˚ˇˇˇˇ
+Esquid:S2786")Remove this redundant "static" qualifier.(ñ°´æ¸ˇˇˇˇ
+jsquid:CommentedOutCodeLine»"<This block of commented-out lines of code should be removed.(æıó§8§°©àª-
+jsquid:CommentedOutCodeLine‚"<This block of commented-out lines of code should be removed.(” Úï8§°©àª-
+esquid:S1126‘"AReplace this if-then-else statement by a single return statement.(çëÂà˛ˇˇˇˇ8§°©àª-
+osquid:ModifiersOrderCheck3"EReorder the modifiers to comply with the Java Language Specification.(∞ÛÉ€¯ˇˇˇˇ
+\
+squid:S106Ä"9Replace this use of System.out or System.err by a logger.(—ıë†˝ˇˇˇˇ8§°©àª-
+jsquid:HiddenFieldCheckÁ";Rename "endDate" which hides the field declared at line 49.(ëÃÁ´˙ˇˇˇˇ8§°©àª-
