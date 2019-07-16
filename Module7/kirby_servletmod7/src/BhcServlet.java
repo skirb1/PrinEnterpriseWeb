@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -12,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HelloWorld
  */
-@WebServlet("/HelloWorld")
-public class HelloWorld extends HttpServlet {
+@WebServlet("/BhcResult")
+public class BhcServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HelloWorld() {
+    public BhcServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

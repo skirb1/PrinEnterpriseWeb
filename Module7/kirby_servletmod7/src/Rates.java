@@ -3,10 +3,6 @@ import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-/*
-import org.jdatepicker.DateModel;
-import org.jdatepicker.UtilCalendarModel;
-*/
 
 /** Rates is an object that provides a cost for a booked tour.  
  * There is a base rate and a premium rate that are used to calculate 
