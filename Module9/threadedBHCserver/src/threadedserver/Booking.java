@@ -1,4 +1,4 @@
-package com.rbevans.bookingrate;
+package threadedserver;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -18,7 +18,7 @@ import org.jdatepicker.UtilCalendarModel;
  *
  * @author evansrb1
  */
-public class Rates {
+public class Booking {
     public static enum HIKE {
     	GARDINER("Gardiner"), 
     	HELLROARING("Hellroaring"), 
@@ -56,19 +56,19 @@ public class Rates {
     // cached number of weekday days
     int normalDays = 0;
 
-    // we open June 1st
-    private int seasonStartMonth = 6;
+    // we open June 1st (Jan = 0)
+    private int seasonStartMonth = 5;
     private int seasonStartDay = 1;    
 
-    // we close Oct 1st.
-    private int seasonEndMonth = 10;
-    private int seasonEndDay = 1;    
+    // we close Oct 1st. (Jan = 0)
+    private int seasonEndMonth = 9;
+    private int seasonEndDay = 1;   
     
     private String details = "none";
     private int[] validDurations = null;
     private int selectedDuration = -1;
 
-    public Rates(HIKE hike ) {
+    public Booking(HIKE hike ) {
         this.hike = hike;
         switch (hike) {
             case GARDINER:
@@ -92,6 +92,10 @@ public class Rates {
                 break;
         }
         premiumRate = baseRate + (baseRate / 2);
+    }
+    
+    public String getResult() {
+    	return getCost() + ":" + getDetails();
     }
 
     /** Get the total cost for the trip.  Returns -0.01 is something is amiss.
@@ -129,62 +133,49 @@ public class Rates {
     	return new GregorianCalendar(2020, seasonEndMonth, seasonEndDay);
     }
 
-    /** Set the starting day for the season.  This is used to validate booking
-     * dates. Default is June 1st.
-     * @param month (1-Jan, 12-Dec)
-     * @param day
-     */
-    public void setSeasonStart(int month, int day) {
-        seasonStartMonth = month;
-        seasonStartDay = day;
-        synched = false;
-    }
-
-    /** Set the ending day for the season.  This is used to validate booking
-     * dates. Default is October 1st.
-     * @param month (1-Jan, 12-Dec)
-     * @param day
-     */
-    public void setSeasonEnd(int month, int day) {
-        seasonEndMonth = month;
-        seasonEndDay = day;
-        synched = false;
-    }
-
     /** Determine if the entered dates are valid
      * 
      * @return true if both days exist and the begin date is before the end date
      */
      public boolean isValidDates() {
-        if (beginDate == null ||
-                endDate == null) {
-            details = "One of the dates is not defined";
-            return false;
-        } else if (beginDate.getYear() != endDate.getYear()) {
-                details = "The begin and end date must be within the same year";
-                return false;
-        } else if (beginDate.equals(endDate)) {
-                details = "The begin and end date must not be the same date";
-                return false;
-        } else if (beginDate.isValidDate() && endDate.isValidDate()) {
-            if (!beginDate.after(endDate)) {
-                if ((!beginDate.before(seasonStartMonth, seasonStartDay)) &&
-                        (!endDate.after(seasonEndMonth, seasonEndDay))) {
-                    details = "Valid dates";
-                    return true;
-                } else {
-                    details = "Begin or end date is out of season";
-                    return false;
-                }
-            } else {
-                details = "End date is before begin date";
-                return false;
-            }
-        } else {
-            details = "One of the dates is not a valid day";
-            return false;
-        }
-        
+    	 if (beginDate == null) {
+             details = "Start date is not defined";
+             return false;
+         }
+         else if (endDate == null) {
+         	calculateEndDate();
+         }
+         
+         if(endDate != null) {
+ 	        if (beginDate.getYear() != endDate.getYear()) {
+ 	                details = "The begin and end date must be within the same year";
+ 	                return false;
+ 	        } else if (beginDate.equals(endDate)) {
+ 	                details = "The begin and end date must not be the same date";
+ 	                return false;
+ 	        } else if (beginDate.isValidDate() && endDate.isValidDate()) {
+ 	            if (!beginDate.after(endDate)) {
+ 	                if ((!beginDate.before(seasonStartMonth, seasonStartDay)) &&
+ 	                        (!endDate.after(seasonEndMonth, seasonEndDay))) {
+ 	                    details = "Valid dates";
+ 	                    return true;
+ 	                } else {
+ 	                    details = "Begin or end date is out of season";
+ 	                    return false;
+ 	                }
+ 	            } else {
+ 	                details = "End date is before begin date";
+ 	                return false;
+ 	            }
+ 	        } else {
+ 	            details = "One of the dates is not a valid day";
+ 	            return false;
+ 	        }
+         }
+         else {
+         	details = "Could not calculate end date";
+         	return false;
+         }
     }
 
     /** Status of validation of data.  This is filled in once isValidDates() is called
@@ -269,6 +260,9 @@ public class Rates {
      * @return a GregorianCalendar object of the end date
      */
     public GregorianCalendar getEndDate() {
+    	if(endDate == null) {
+    		calculateEndDate();
+    	}
         if (endDate == null) {
             return null;
         } else {
@@ -289,6 +283,9 @@ public class Rates {
      * @return a GregorianCalendar object of the end date
      */
     public BookingDay getEndBookingDay() {
+    	if(endDate == null) {
+    		calculateEndDate();
+    	}
        return endDate;
     }
 
@@ -320,20 +317,8 @@ public class Rates {
                 break;
             }
         }
-        if (!valid) {
-            return false;
-        } else {
-        	/*
-            // first a quick check to see if this is a valid
-            GregorianCalendar day = beginDate.getDate();
-            day.add(Calendar.DAY_OF_MONTH, days - 1);
-            endDate = new BookingDay(day.get(Calendar.YEAR),
-                    day.get(Calendar.MONTH) + 1,
-                    day.get(Calendar.DAY_OF_MONTH));
-                    */
-            synched = false; 
-            return true;
-        }
+        synched = false;
+        return valid;
     }
 
     public int getSelectedDuration(){
@@ -361,11 +346,10 @@ public class Rates {
     public void calculateEndDate() {
     	if(hasDuration() && getBeginDate() != null) {
             GregorianCalendar day = getBeginDate();
-            day.add(Calendar.DAY_OF_MONTH, getSelectedDuration());
-            endDate = new BookingDay(day.get(Calendar.YEAR),
-                    day.get(Calendar.MONTH) + 1,
-                    day.get(Calendar.DAY_OF_MONTH));
-
+            day.add(Calendar.DAY_OF_YEAR, getSelectedDuration());
+            setEndDate(new BookingDay(day.get(Calendar.YEAR),
+                    day.get(Calendar.MONTH),
+                    day.get(Calendar.DAY_OF_MONTH)));
     	}
     }
 
@@ -376,18 +360,18 @@ public class Rates {
         System.out.println("start Day of " + startDay + " " + (startDay.isValidDate()?"is valid":"is not valid"));
         System.out.println("end Day " + endDay + " " + (endDay.isValidDate()?"is valid":"is not valid"));        
 
-        Rates rates = new Rates(HIKE.BEATEN);
+        Booking booking = new Booking(HIKE.BEATEN);
 
-        rates.setBeginDate(startDay);
-        boolean success = rates.setDuration(7);
+        booking.setBeginDate(startDay);
+        boolean success = booking.setDuration(7);
         System.out.println("duration was " + (success ? "good" : "bad"));
-        System.out.println("valid Dates = " + rates.isValidDates());
-        if (rates.isValidDates()) {
-            System.out.println("Cost of trip = " + rates.getCost());
-            System.out.println("Weekdays: " + rates.getNormalDays());
-            System.out.println("Weekends: " + rates.getPremiumDays());        
+        System.out.println("valid Dates = " + booking.isValidDates());
+        if (booking.isValidDates()) {
+            System.out.println("Cost of trip = " + booking.getCost());
+            System.out.println("Weekdays: " + booking.getNormalDays());
+            System.out.println("Weekends: " + booking.getPremiumDays());        
         } else {
-            System.out.println("Sorry, but " + rates.getDetails());
+            System.out.println("Sorry, but " + booking.getDetails());
         }
     }
 }

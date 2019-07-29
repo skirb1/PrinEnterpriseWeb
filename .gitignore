@@ -21,6 +21,9 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
-apache-tomcat-8.5.43/
-Module7/servletmod7/build/classes/
-Module8/kirby_servletmod8/build/classes/
+apache-tomcat-8.5.43/*
+Module7/servletmod7/build/classes/*
+Module8/kirby_servletmod8/build/classes/*
+*.class
+Module6/BhcBookingRates/bin/*
+Module9/threadedBHCserver/bin/*

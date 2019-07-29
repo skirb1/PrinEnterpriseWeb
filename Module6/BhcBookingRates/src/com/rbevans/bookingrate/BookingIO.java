@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
 public class BookingIO {
     private static String HOST = "web7.jhuep.com";
 
-    private static int PORT = 20025;
+    private static int PORT = 20009;
 
     public BookingIO(){ }
 
