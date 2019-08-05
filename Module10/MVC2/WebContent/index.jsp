@@ -1,16 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-  	<meta charset="UTF-8">
-    <title>SimpleForm Servlet</title>
+  	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>BHC JSP</title>
+    <jsp:useBean id="rates" class="com.rbevans.Rates" scope="session"/>
   </head>
   <body>
 <h1>Beartooth Hiking Company Booking</h1><br />
 Please enter trip details:<br /><br />
 <div style="padding-left:20px;">
-<form action="http://localhost:8080/kirby_servletmod8/BhcResult" method=GET>
+<form action="http://localhost:8080/MVC2/BhcController" method=GET>
   Hike:
   <input type="radio" name="hike" value="GARDINER" onclick="setDuration([3,4])">Gardiner Lake
   <input type="radio" name="hike" value="HELLROARING" onclick="setDuration([2,3,4])">Hellroaring Plateau
