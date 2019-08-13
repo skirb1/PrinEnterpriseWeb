@@ -33,14 +33,23 @@ public class DbConnection {
 			Connection conn = DriverManager.getConnection(url + db + options, user, password);
 			Statement statement = conn.createStatement();
 			
-			String query = "SELECT * FROM reservation";
+			//startDate = startDate.replace("-", "");
+			
+			String query = "SELECT r.First, r.Last, r.StartDay, r.NumberOfDays, " + 
+					"g.First as guideFirst, g.Last as guideLast, l.location " + 
+					"FROM reservation as r INNER JOIN guides as g ON r.guide=g.idguides " + 
+					"INNER JOIN locations as l ON r.location=l.idlocations " + 
+					"WHERE r.StartDay>'" + startDate + "'";
 			ResultSet rs = statement.executeQuery(query);
 			
 			while(rs.next()) {
 				RecordBean record = new RecordBean();
 				record.setFirstName(rs.getString("First"));
 				record.setLastName(rs.getString("Last"));
-				
+				record.setStartDate(rs.getDate("StartDay"));
+				record.setNumberOfDays(rs.getInt("NumberOfDays"));
+				record.setGuideName(rs.getString("guideFirst") + " " + rs.getString("guideLast"));
+				record.setLocation(rs.getString("location"));
 				recordList.add(record);
 			}
 			

@@ -1,6 +1,8 @@
 package com.kirby;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,6 +21,8 @@ import javax.servlet.http.HttpSession;
 public class BhcRecords extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String RESULT_SET = "records";
+	private static final String START_DATE = "startDate";
+	private static final String ERROR = "error";
 	
 	private static final DbConnection dbConnection = new DbConnection();
        
@@ -36,12 +40,22 @@ public class BhcRecords extends HttpServlet {
 		HttpSession session = request.getSession();
 		ServletContext servletContext = getServletContext();
 		
-		String inputDateStr = request.getParameter("startDate");
+		session.setAttribute(RESULT_SET, null);
+		session.setAttribute(START_DATE, null);
+		session.setAttribute(ERROR, null);
 		
-		//TODO Check format of date string: YYYY-MM-DD
-		
-		List<RecordBean> recordList = dbConnection.getRecords(inputDateStr);
-		session.setAttribute(RESULT_SET, recordList);
+		try {
+			String inputDateStr = request.getParameter(START_DATE);
+			Date date = new SimpleDateFormat("yyyy-MM-dd").parse(inputDateStr);
+			
+			List<RecordBean> recordList = dbConnection.getRecords(inputDateStr);
+			session.setAttribute(RESULT_SET, recordList);
+			session.setAttribute(START_DATE, inputDateStr);
+			
+		}
+		catch(Exception ex) {
+			session.setAttribute(ERROR, "Error: invalid request");
+		}
 
 		RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);

@@ -14,9 +14,7 @@ public class RecordBean {
 	
 	private int numberOfDays;
 	
-	private String guideFirst;
-	
-	private String guideLast;
+	private String guideName;
 	
 	private String location;
 
@@ -60,20 +58,12 @@ public class RecordBean {
 		this.numberOfDays = numberOfDays;
 	}
 
-	public String getGuideFirst() {
-		return guideFirst;
+	public String getGuideName() {
+		return guideName;
 	}
 
-	public void setGuideFirst(String guideFirst) {
-		this.guideFirst = guideFirst;
-	}
-
-	public String getGuideLast() {
-		return guideLast;
-	}
-
-	public void setGuideLast(String guideLast) {
-		this.guideLast = guideLast;
+	public void setGuideName(String guideName) {
+		this.guideName = guideName;
 	}
 
 	public String getLocation() {
