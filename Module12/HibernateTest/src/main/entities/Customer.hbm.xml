@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 15, 2019 5:42:52 PM by Hibernate Tools 5.4.2.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sakila" dynamic-insert="false" dynamic-update="false" mutable="true" name="main.entities.Customer" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="customer">
+        <id name="customerId" type="java.lang.Short">
+            <column name="customer_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="main.entities.Address" embed-xml="true" fetch="select" insert="true" name="address" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="address_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="main.entities.Store" embed-xml="true" fetch="select" insert="true" name="store" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="store_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="firstName" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="first_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="lastName" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="last_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="email"/>
+        </property>
+        <property generated="never" lazy="false" name="active" optimistic-lock="true" type="boolean" unique="false">
+            <column name="active" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="createDate" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="create_date" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="lastUpdate" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="last_update"/>
+        </property>
+    </class>
+</hibernate-mapping>

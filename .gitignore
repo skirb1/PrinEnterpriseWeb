@@ -27,3 +27,5 @@ Module8/kirby_servletmod8/build/classes/*
 *.class
 Module6/BhcBookingRates/bin/*
 Module9/threadedBHCserver/bin/*
+Module12/hibernate-release-5.4.4.Final/
+Module12/HibernateTest.zip
